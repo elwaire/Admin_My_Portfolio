@@ -1,4 +1,3 @@
-import { AnimatePresence } from "framer-motion";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import HomePage from "../pages/Home";
@@ -13,18 +12,16 @@ export default function AppRoutes() {
     const location = useLocation();
 
     return (
-        <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-                {/* Routes có layout */}
-                <Route element={<MainLayout />}>
-                    <Route path={PATHS.HOME} element={<HomePage />} />
-                    <Route path={PATHS.PROJECT_ADD} element={<AddProjectPage />} />
-                    <Route path="*" element={<NotFound />} />
-                </Route>
+        <Routes location={location} key={location.pathname}>
+            {/* Routes có layout */}
+            <Route element={<MainLayout />}>
+                <Route path={PATHS.HOME} element={<HomePage />} />
+                <Route path={PATHS.PROJECT_ADD} element={<AddProjectPage />} />
+                <Route path="*" element={<NotFound />} />
+            </Route>
 
-                {/* Route không layout */}
-                <Route element={<ChildLayout />}></Route>
-            </Routes>
-        </AnimatePresence>
+            {/* Route không layout */}
+            <Route element={<ChildLayout />}></Route>
+        </Routes>
     );
 }
