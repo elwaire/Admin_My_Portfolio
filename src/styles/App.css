@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+#root {
+    margin: 0 auto;
+    background: #fdfcf9;
+    color: #000000;
+    /* font-family: "Raleway", sans-serif; */
+}
+
+/* global.css */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.AppWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
