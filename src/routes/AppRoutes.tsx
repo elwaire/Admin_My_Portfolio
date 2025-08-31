@@ -1,7 +1,12 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 
-import HomePage from "../pages/Home";
-import AddProjectPage from "../pages/Projects/AddProject";
+import AboutManagePage from "../pages/AboutManage";
+
+import ProjectsManagePage from "../pages/ProjectsManage";
+import AddProjectPage from "../pages/ProjectsManage/AddProject";
+
+import CertificatesManage from "../pages/CertificatesManage";
+
 import NotFound from "../pages/NotFound";
 
 import MainLayout from "../layouts/MainLayout";
@@ -15,8 +20,13 @@ export default function AppRoutes() {
         <Routes location={location} key={location.pathname}>
             {/* Routes có layout */}
             <Route element={<MainLayout />}>
-                <Route path={PATHS.HOME} element={<HomePage />} />
+                <Route path={PATHS.ABOUT} element={<AboutManagePage />} />
+
+                <Route path={PATHS.PROJECT} element={<ProjectsManagePage />} />
                 <Route path={PATHS.PROJECT_ADD} element={<AddProjectPage />} />
+
+                <Route path={PATHS.CERTIFICATE} element={<CertificatesManage />} />
+
                 <Route path="*" element={<NotFound />} />
             </Route>
 

@@ -1,39 +1,33 @@
-import { Layout, Menu, Avatar, Dropdown } from "antd";
-import { Outlet, Link, useLocation } from "react-router-dom";
 import {
+    HomeOutlined,
+    InfoCircleOutlined,
+    LogoutOutlined,
     ProjectOutlined,
     SettingOutlined,
     UserOutlined,
-    LogoutOutlined,
-    PlusOutlined,
-    HomeOutlined,
-    InfoCircleOutlined,
 } from "@ant-design/icons";
+import { Avatar, Dropdown, Layout, Menu } from "antd";
 import { memo, useMemo } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import PATHS from "../constants/paths";
 
 const { Header, Sider, Content, Footer } = Layout;
 
 const MENU_ITEMS = [
     {
-        key: PATHS.HOME,
+        key: PATHS.ABOUT,
         icon: <HomeOutlined />,
-        label: <Link to={PATHS.HOME}>Home</Link>,
+        label: <Link to={PATHS.ABOUT}>About</Link>,
     },
     {
-        key: PATHS.ABOUT_US,
+        key: PATHS.CERTIFICATE,
         icon: <InfoCircleOutlined />,
-        label: <Link to={PATHS.ABOUT_US}>About</Link>,
+        label: <Link to={PATHS.CERTIFICATE}>Certificate</Link>,
     },
     {
         key: PATHS.PROJECT,
         icon: <ProjectOutlined />,
         label: <Link to={PATHS.PROJECT}>Projects</Link>,
-    },
-    {
-        key: PATHS.PROJECT_ADD,
-        icon: <PlusOutlined />,
-        label: <Link to={PATHS.PROJECT_ADD}>Add Project</Link>,
     },
     {
         key: "/settings",
