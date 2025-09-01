@@ -1,4 +1,4 @@
-// types/about.ts (extend existing)
+// types/about.ts (update to match client structure)
 export interface Achievement {
     id: string;
     year: string;
@@ -23,16 +23,17 @@ export interface CurrentActivity {
     id: string;
     color: string;
     activity: string;
-    type: "work" | "learning";
+    type: "work" | "learning"; // Keep type for admin filtering
 }
 
 export interface ProfileData {
     name: string;
     title: string;
-    description: string;
-    avatar: string;
-    email: string;
-    location: string;
+    image: string; // Changed from avatar to image to match client
+    bio: string[]; // Array of bio paragraphs
+    skills: string[]; // Skills array
+    email?: string; // Optional for backward compatibility
+    location?: string; // Optional for backward compatibility
 }
 
 export interface AboutData {

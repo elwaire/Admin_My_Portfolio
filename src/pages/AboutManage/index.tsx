@@ -1,6 +1,6 @@
 // pages/admin/AboutManagePage.tsx
 import React, { useState, useCallback } from "react";
-import { Tabs, Card, message } from "antd";
+import { Tabs, Card, message, Button } from "antd";
 import { useAbout } from "../../hooks/useAbout";
 import type { Achievement, TimelineItem, CurrentActivity } from "../../types/about";
 import ProfileTab from "./components/ProfileTab";
@@ -9,6 +9,7 @@ import AchievementItem from "./components/AchievementItem";
 import TimelineItemComponent from "./components/TimelineItem";
 import ActivityItem from "./components/TimelineItem/ActivityItem";
 import AboutFormModal from "./components/AboutFormModal";
+import { createInitialAboutData } from "../../utils/aboutDataSeeder";
 
 const AboutManagePage: React.FC = () => {
     const { aboutData, loading, updateAboutData, isUpdating } = useAbout();
@@ -128,6 +129,7 @@ const AboutManagePage: React.FC = () => {
         return (
             <div className="p-6">
                 <h1 className="text-2xl font-bold mb-6">About Management</h1>
+                <Button onClick={() => createInitialAboutData()}>Add</Button>
                 <Card>
                     <div className="text-center py-8">
                         <p className="text-gray-500">No about data found</p>

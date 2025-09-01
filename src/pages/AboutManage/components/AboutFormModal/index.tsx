@@ -55,17 +55,38 @@ const AboutFormModal: React.FC<AboutFormModalProps> = ({
                         <Form.Item name="title" label="Title" rules={[{ required: true }]}>
                             <Input placeholder="Your job title" />
                         </Form.Item>
-                        <Form.Item name="email" label="Email" rules={[{ required: true, type: "email" }]}>
-                            <Input placeholder="your@email.com" />
-                        </Form.Item>
-                        <Form.Item name="location" label="Location" rules={[{ required: true }]}>
-                            <Input placeholder="City, Country" />
-                        </Form.Item>
-                        <Form.Item name="avatar" label="Avatar URL" rules={[{ type: "url" }]}>
+                        <Form.Item name="image" label="Image URL" rules={[{ type: "url" }]}>
                             <Input placeholder="https://..." />
                         </Form.Item>
-                        <Form.Item name="description" label="Description">
-                            <TextArea rows={4} placeholder="Brief description about yourself" />
+                        <Form.Item name="skills" label="Skills">
+                            <Select mode="tags" placeholder="Add skills">
+                                <Option value="UI/UX Design">UI/UX Design</Option>
+                                <Option value="Frontend Development">Frontend Development</Option>
+                                <Option value="Design Systems">Design Systems</Option>
+                                <Option value="React">React</Option>
+                                <Option value="TypeScript">TypeScript</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item name="bio" label="Bio">
+                            <Form.List name="bio">
+                                {(fields, { add, remove }) => (
+                                    <>
+                                        {fields.map(({ key, name, ...restField }) => (
+                                            <div key={key} className="flex gap-2 mb-2">
+                                                <Form.Item {...restField} name={name} className="flex-1">
+                                                    <TextArea rows={3} placeholder="Bio paragraph" />
+                                                </Form.Item>
+                                                <Button onClick={() => remove(name)} danger>
+                                                    Delete
+                                                </Button>
+                                            </div>
+                                        ))}
+                                        <Button onClick={() => add()} block>
+                                            Add Bio Paragraph
+                                        </Button>
+                                    </>
+                                )}
+                            </Form.List>
                         </Form.Item>
                     </>
                 );
@@ -114,12 +135,12 @@ const AboutFormModal: React.FC<AboutFormModalProps> = ({
                         </Form.Item>
                         <Form.Item name="color" label="Color" rules={[{ required: true }]}>
                             <Select placeholder="Select color">
-                                <Option value="blue">Blue</Option>
                                 <Option value="green">Green</Option>
+                                <Option value="blue">Blue</Option>
                                 <Option value="purple">Purple</Option>
-                                <Option value="red">Red</Option>
-                                <Option value="yellow">Yellow</Option>
-                                <Option value="indigo">Indigo</Option>
+                                <Option value="orange">Orange</Option>
+                                <Option value="pink">Pink</Option>
+                                <Option value="teal">Teal</Option>
                             </Select>
                         </Form.Item>
                     </>
